@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: resume-backend/Dockerfile.backend
+    expose:
+      - "8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: resume-frontend/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
